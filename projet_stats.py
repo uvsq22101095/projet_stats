@@ -6,3 +6,9 @@
 # https://github.com/uvsq22101095/projet_stats
 #########################################
 
+
+import sys 
+
+sys.path.append('')
+
+
