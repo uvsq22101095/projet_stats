@@ -14,7 +14,8 @@ HEIGHT = 500
 WIDTH = 500
 
 racine = tk.Tk()
-canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH)
+canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH, bg='ivory')
+canvas.title("Projet stats")
 
 L = []
 x = 0
@@ -108,7 +109,7 @@ print(
 )
 
 for i in range(0, 2*n-1, 2):
-    varX = ((L[i]-X_moyen)**2)/n
-    varY = ((L[i+1]-X_moyen)**2)/n
+    varX = ((L[i]-int(X_moyen))**2)/n
+    varY = ((L[i+1]-int(Y_moyen))**2)/n
 
 racine.mainloop()
