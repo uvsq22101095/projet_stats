@@ -14,7 +14,7 @@ HEIGHT = 500
 WIDTH = 500
 
 racine = tk.Tk()
-canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH, bg='ivory')
+canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH)
 canvas.title("Projet stats")
 
 L = []
@@ -24,7 +24,7 @@ X_moyen = 0
 Y_moyen = 0
 varX = 0
 varY = 0
-n = int(input())
+n = int(input("un nombre entier naturel"))
 
 # créer des nombre au hazards et les entre dans un fichier texte
 fic = open("coordonnées", "w")
