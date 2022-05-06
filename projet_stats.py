@@ -21,6 +21,8 @@ x = 0
 y = 0
 X_moyen = 0
 Y_moyen = 0
+varX = 0
+varY = 0
 n = int(input("un nombre entier naturel"))
 
 # créer des nombre au hazards et les entre dans un fichier texte
@@ -82,7 +84,7 @@ canvas.create_line(
 
 
 def PLACEMENT_DES_POINTS(n):
-    for i in range(1, 2*n-2, 2):
+    for i in range(0, 2*n-2, 2):
         x = int(L[i])
         y = int(L[i+1])
         # le "HEIGHT -" est nécessaire pour avoir un plan dans le bon sens
@@ -90,7 +92,7 @@ def PLACEMENT_DES_POINTS(n):
     pass
 
 
-for i in range(1, 2*n-2, 2):
+for i in range(0, 2*n-2, 2):
     X_moyen += int(L[i]) / n
     Y_moyen += int(L[i+1]) / n
 canvas.create_oval(
@@ -104,5 +106,9 @@ print(
     "la moyenne des abscices est :", X_moyen,
     "\n La moyenne des ordonnées est :", Y_moyen
 )
+
+for i in range(0, 2*n-1, 2):
+    varX = ((L[i]-X_moyen)**2)/n
+    varY = ((L[i+1]-X_moyen)**2)/n
 
 racine.mainloop()
