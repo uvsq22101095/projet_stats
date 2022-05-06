@@ -24,7 +24,7 @@ X_moyen = 0
 Y_moyen = 0
 varX = 0
 varY = 0
-n = int(input("un nombre entier naturel"))
+n = int(input())
 
 # créer des nombre au hazards et les entre dans un fichier texte
 fic = open("coordonnées", "w")
