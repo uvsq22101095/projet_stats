@@ -19,6 +19,8 @@ canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH)
 L = []
 x = 0
 y = 0
+X_moyen = 0
+Y_moyen = 0
 n = int(input("un nombre entier naturel"))
 
 # créer des nombre au hazards et les entre dans un fichier texte
@@ -88,20 +90,19 @@ def PLACEMENT_DES_POINTS(n):
     pass
 
 
-def POINT_MOYEN():
-    X_moyen = 0
-    Y_moyen = 0
-    for i in range(1, 2*n-2, 2):
-        X_moyen += int(L[i]) / n
-        Y_moyen += int(L[i+1]) / n
-    canvas.create_oval(
-        X_moyen + 5,
-        HEIGHT - Y_moyen + 5,
-        X_moyen - 5,
-        HEIGHT - Y_moyen - 5,
-        fill="deep pink"
-    )
-    return(X_moyen, Y_moyen)
-
+for i in range(1, 2*n-2, 2):
+    X_moyen += int(L[i]) / n
+    Y_moyen += int(L[i+1]) / n
+canvas.create_oval(
+    X_moyen + 5,
+    HEIGHT - Y_moyen + 5,
+    X_moyen - 5,
+    HEIGHT - Y_moyen - 5,
+    fill="deep pink"
+)
+print(
+    "la moyenne des abscices est :", X_moyen,
+    "\n La moyenne des ordonnées est :", Y_moyen
+)
 
 racine.mainloop()
