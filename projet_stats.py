@@ -15,7 +15,6 @@ WIDTH = 500
 
 racine = tk.Tk()
 canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH)
-canvas.title("Projet stats")
 
 L = []
 x = 0
