@@ -12,103 +12,189 @@ import tkinter as tk
 
 HEIGHT = 500
 WIDTH = 500
-
-racine = tk.Tk()
-canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH)
-
-L = []
-x = 0
-y = 0
-X_moyen = 0
-Y_moyen = 0
-varX = 0
-varY = 0
-n = int(input("un nombre entier naturel"))
-
-# créer des nombre au hazards et les entre dans un fichier texte
-fic = open("coordonnées", "w")
-for i in range(n):
-    x = rd.randint(1, 500)
-    y = rd.randint(1, 500)
-    fic.write(str(x) + " " + str(y) + "\n")
-fic.close()
-
-# transforme le fichier texte en liste de coordonées
-fic = open("coordonnées", "r")
-for i in range(n):
-    line = fic.readline()
-    val = line.split()
-    L += [val[0], val[1]]
-fic.close()
-
-# créer l'abscice et l'ordonnée du canvas
-for i in range(5):
-    canvas.create_line(
-        (0, i*100),
-        (WIDTH, i*100),
-        fill="pink",
-        width=3
-    )
-    canvas.create_line(
-        (i*100, 0),
-        (i*100, HEIGHT),
-        fill="pink",
-        width=3
-    )
-
-# créer des axes pour que le canvas soit plus lisible
-canvas.create_line(
-    (0, 0),
-    (0, HEIGHT),
-    fill="blue2",
-    width=10
-)
-canvas.create_line(
-    (0, HEIGHT),
-    (WIDTH, HEIGHT),
-    fill="blue2",
-    width=3
-)
-canvas.create_line(
-    (0, 0),
-    (10, 10),
-    fill="blue2",
-    width=3
-)
-canvas.create_line(
-    (WIDTH-10, HEIGHT-10),
-    (WIDTH, HEIGHT),
-    fill="blue2",
-    width=3
-)
+Lx = []
+Ly = []
 
 
-def PLACEMENT_DES_POINTS(n):
-    for i in range(0, 2*n-2, 2):
-        x = int(L[i])
-        y = int(L[i+1])
-        # le "HEIGHT -" est nécessaire pour avoir un plan dans le bon sens
-    canvas.create_oval(x+1, HEIGHT-y+1, x-1, HEIGHT-y-1, fill="red")
+root = tk.Tk()
+canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
+
+nb = 100
+
+
+def creer_fichier_alea(nb):
+    fichier = open("coordonnees.txt", "w")
+    for i in range(0, nb, 2):
+        x = int(rd.randint(0, 500))
+        y = int(rd.randint(0, 500))
+        fichier.write(str(x) + " " + str(y) + "\n")
+    fichier.close()
     pass
 
 
-for i in range(0, 2*n-2, 2):
-    X_moyen += int(L[i]) / n
-    Y_moyen += int(L[i+1]) / n
-canvas.create_oval(
-    X_moyen + 5,
-    HEIGHT - Y_moyen + 5,
-    X_moyen - 5,
-    HEIGHT - Y_moyen - 5,
-    fill="deep pink"
-)
-print(
-    "la moyenne des abscices est :", X_moyen,
-    "\n La moyenne des ordonnées est :", Y_moyen
-)
+def lit_fichier_X():
+    X = []
+    fichier = open("coordonnees.txt", "r")
+    for i in range(0, nb//2):
+        line = fichier.readline()
+        val = line.split()
+        X += [val[0]]
+    fichier.close()
+    return(X)
 
-for i in range(0, 2*n-1, 2):
-    varX = ((L[i]-int(X_moyen))**2)/n
-    varY = ((L[i+1]-int(Y_moyen))**2)/n
 
-racine.mainloop()
+def lit_fichier_Y():
+    Y = []
+    fichier = open("coordonnees.txt", "r")
+    for i in range(0, nb//2):
+        line = fichier.readline()
+        val = line.split()
+        Y += [val[1]]
+    fichier.close()
+    return(Y)
+
+
+def trace_Nuage(X, Y):
+    nb_points = 0
+    x = X
+    y = Y
+    for i in range(0, nb//2):
+        abscice = x[i]
+        ordonnees = y[i]
+        canvas.create_oval(
+            int(abscice)+1,
+            HEIGHT-(int(ordonnees))+1,
+            int(abscice)-1,
+            HEIGHT-(int(ordonnees)-1)
+        )
+        nb_points += 1
+    return(nb_points)
+
+
+def tracer_droite(serie):
+    a = int(serie[0])
+    b = int(serie[1])
+    color = int(rd.randint(1, 5))
+    if color == 1:
+        canvas.create_line(
+            0,
+            HEIGHT-b,
+            WIDTH,
+            HEIGHT-(a*int(WIDTH)+b),
+            fill="red"
+        )
+    elif color == 2:
+        canvas.create_line(
+            0,
+            HEIGHT-b,
+            WIDTH,
+            HEIGHT-(a*int(WIDTH)+b),
+            fill="blue2"
+        )
+    elif color == 3:
+        canvas.create_line(
+            0,
+            HEIGHT-b,
+            WIDTH,
+            HEIGHT-(a*int(WIDTH)+b),
+            fill="maroon1"
+        )
+    elif color == 4:
+        canvas.create_line(
+            0,
+            HEIGHT-b,
+            WIDTH,
+            HEIGHT-(a*int(WIDTH)+b),
+            fill="dark green"
+        )
+    else:
+        canvas.create_line(
+            0,
+            HEIGHT-b,
+            WIDTH,
+            HEIGHT-(a*int(WIDTH)+b),
+            fill="yellow"
+        )
+
+
+def moyenne(serie):
+    valeur_moyenne = 0
+    m = serie
+    for i in range(0, nb//2):
+        M = int(m[i])
+        valeur_moyenne += M/(nb//2)
+    return(valeur_moyenne)
+
+
+def variance(serie):
+    var = 0
+    v = serie
+    for i in range(0, nb//2):
+        V = int(v[i])
+        var += (V-int(moyenne(serie))**2)/(nb//2)
+    return(var)
+
+
+def covariance(serieX, serieY):
+    cov = 0
+    X = serieX
+    Y = serieY
+    for i in range(0, nb//2):
+        x = int(X[i])
+        y = int(Y[i])
+        cov += ((x-moyenne(serieX))*(y-moyenne(serieY)))/nb
+    return(cov)
+
+
+def correlation(serieX, serieY):
+    a = (int(covariance(serieX, serieY)))
+    b = (int(variance(serieX)))*int(variance(serieY))
+    cor = (a/(b)**1/2)
+    return(cor)
+
+
+def fortecorrelation(serieX, serieY):
+    cor = correlation(serieX, serieY)
+    if cor > 0.8 or cor < -0.8:
+        return(True)
+    else:
+        return(False)
+
+
+def droite_reg(serieX, serieY):
+    a = (int(correlation(serieX, serieY))/(int(variance(serieX))))
+    b = (int(moyenne(serieY)-a*int(moyenne(serieX))))
+    return(a, b)
+
+
+droite = tk.Button(
+    text="tracer la droite",
+    fg="black",
+    bg="white",
+    command=tracer_droite(
+            droite_reg(
+                lit_fichier_X(),
+                lit_fichier_Y()
+            )
+        )
+    )
+couleur = tk.Button(
+    text="changer la couleur",
+    fg="black",
+    bg="white",
+    command=tracer_droite(
+            droite_reg(
+                lit_fichier_X(),
+                lit_fichier_Y()
+            )
+        )
+    )
+
+creer_fichier_alea(nb)
+trace_Nuage(lit_fichier_X(), lit_fichier_Y())
+
+canvas.grid(column=0, row=0, rowspan=2)
+droite.grid(column=1, row=0)
+couleur.grid(column=1, row=1)
+
+root.mainloop()
