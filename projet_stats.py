@@ -19,7 +19,7 @@ Ly = []
 root = tk.Tk()
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 
-nb = 100
+nb = 50
 
 
 def creer_fichier_alea(nb):
@@ -29,7 +29,6 @@ def creer_fichier_alea(nb):
         y = int(rd.randint(0, 500))
         fichier.write(str(x) + " " + str(y) + "\n")
     fichier.close()
-    pass
 
 
 def lit_fichier_X():
@@ -191,6 +190,7 @@ couleur = tk.Button(
     )
 
 creer_fichier_alea(nb)
+
 trace_Nuage(lit_fichier_X(), lit_fichier_Y())
 
 canvas.grid(column=0, row=0, rowspan=2)
