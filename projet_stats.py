@@ -18,6 +18,7 @@ Ly = []
 
 root = tk.Tk()
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
+root.title("Projet stats")
 
 nb = 50
 
@@ -114,6 +115,7 @@ def tracer_droite(serie):
             HEIGHT-(a*int(WIDTH)+b),
             fill="yellow"
         )
+    return()
 
 
 def moyenne(serie):
@@ -189,12 +191,21 @@ couleur = tk.Button(
         )
     )
 
+quit = tk.Button(
+    text="quitter",
+    fg="black",
+    bg="white",
+    command=root.destroy
+)
+
+
 creer_fichier_alea(nb)
 
 trace_Nuage(lit_fichier_X(), lit_fichier_Y())
 
-canvas.grid(column=0, row=0, rowspan=2)
+canvas.grid(column=0, row=0, rowspan=3)
 droite.grid(column=1, row=0)
 couleur.grid(column=1, row=1)
+quit.grid(column=1, row=2)
 
 root.mainloop()
