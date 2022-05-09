@@ -76,44 +76,21 @@ def tracer_droite(serie):
     b = int(serie[1])
     color = int(rd.randint(1, 5))
     if color == 1:
-        d = canvas.create_line(
-            0,
-            HEIGHT-b,
-            WIDTH,
-            HEIGHT-(a*int(WIDTH)+b),
-            fill="red"
-        )
+        c = "blue2"
     elif color == 2:
-        d = canvas.create_line(
-            0,
-            HEIGHT-b,
-            WIDTH,
-            HEIGHT-(a*int(WIDTH)+b),
-            fill="blue2"
-        )
+        c = "red"
     elif color == 3:
-        d = canvas.create_line(
-            0,
-            HEIGHT-b,
-            WIDTH,
-            HEIGHT-(a*int(WIDTH)+b),
-            fill="maroon1"
-        )
+        c = "maroon2"
     elif color == 4:
-        d = canvas.create_line(
-            0,
-            HEIGHT-b,
-            WIDTH,
-            HEIGHT-(a*int(WIDTH)+b),
-            fill="dark green"
-        )
+        c = "dark green"
     else:
-        d = canvas.create_line(
+        c = "dark violet"
+    d = canvas.create_line(
             0,
             HEIGHT-b,
             WIDTH,
             HEIGHT-(a*int(WIDTH)+b),
-            fill="yellow"
+            fill=c
         )
     return(d)
 
