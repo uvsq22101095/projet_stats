@@ -76,7 +76,7 @@ def tracer_droite(serie):
     b = int(serie[1])
     color = int(rd.randint(1, 5))
     if color == 1:
-        canvas.create_line(
+        d = canvas.create_line(
             0,
             HEIGHT-b,
             WIDTH,
@@ -84,7 +84,7 @@ def tracer_droite(serie):
             fill="red"
         )
     elif color == 2:
-        canvas.create_line(
+        d = canvas.create_line(
             0,
             HEIGHT-b,
             WIDTH,
@@ -92,7 +92,7 @@ def tracer_droite(serie):
             fill="blue2"
         )
     elif color == 3:
-        canvas.create_line(
+        d = canvas.create_line(
             0,
             HEIGHT-b,
             WIDTH,
@@ -100,7 +100,7 @@ def tracer_droite(serie):
             fill="maroon1"
         )
     elif color == 4:
-        canvas.create_line(
+        d = canvas.create_line(
             0,
             HEIGHT-b,
             WIDTH,
@@ -108,14 +108,19 @@ def tracer_droite(serie):
             fill="dark green"
         )
     else:
-        canvas.create_line(
+        d = canvas.create_line(
             0,
             HEIGHT-b,
             WIDTH,
             HEIGHT-(a*int(WIDTH)+b),
             fill="yellow"
         )
-    return()
+    return(d)
+
+
+def changer_couleur(serie):
+    canvas.delete(serie)
+    serie
 
 
 def moyenne(serie):
@@ -179,17 +184,22 @@ droite = tk.Button(
             )
         )
     )
+
+
 couleur = tk.Button(
     text="changer la couleur",
     fg="black",
     bg="white",
-    command=tracer_droite(
-            droite_reg(
-                lit_fichier_X(),
-                lit_fichier_Y()
+    command=changer_couleur(
+            tracer_droite(
+                droite_reg(
+                    lit_fichier_X(),
+                    lit_fichier_Y()
+                )
             )
         )
     )
+
 
 quit = tk.Button(
     text="quitter",
