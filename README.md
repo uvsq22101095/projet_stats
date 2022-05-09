@@ -1,6 +1,6 @@
 # projet_stats
 
-Notre application se découpe en deux fichier.
+##Notre projet se découpe en deux fichier.
 
 -le fichier projet_stats.py qui correspond au code principal du projet.
 
