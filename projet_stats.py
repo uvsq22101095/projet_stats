@@ -20,7 +20,7 @@ root = tk.Tk()
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 root.title("Projet stats")
 
-nb = 50
+nb = 100
 
 
 def creer_fichier_alea(nb):
