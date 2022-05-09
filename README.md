@@ -11,4 +11,13 @@
 - le boutton "tracer la droite" sert a tracer la droite des moindre carrés
 - le boutton "changer la couleur" sert a changer la couleur de la droite
 - le boutton "quiter" permet de quitter la fenetre 
+##
 
+## problèmes
+- le programme trace automatiquement la droite des moindre carrés sans que le boutton ne soit presser.
+- étant donnée que la droite des moindre carrés se trace automatiquement aucune personne du groupe ne sait comment changer sa couleur.
+
+## auteurs
+- Johan CHENG
+- Nathan TIPAKA
+- Clara SAUNIER (SION-SAUNIER)
