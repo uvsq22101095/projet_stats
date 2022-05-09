@@ -199,7 +199,6 @@ quit = tk.Button(
 )
 
 
-
 creer_fichier_alea(nb)
 
 trace_Nuage(lit_fichier_X(), lit_fichier_Y())
