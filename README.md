@@ -13,9 +13,10 @@
 - le boutton "quiter" permet de quitter la fenetre 
 ##
 
-## problèmes
+## problèmes auquel nous ne savons pas répondre
 - le programme trace automatiquement la droite des moindre carrés sans que le boutton ne soit presser.
 - étant donnée que la droite des moindre carrés se trace automatiquement aucune personne du groupe ne sait comment changer sa couleur.
+- afin de changer le nombre de point sur le canvas, il est nécessaire de créer un petit programme qui modifie le fichier "coordonnes.txt"
 
 ## auteurs
 - Johan CHENG
