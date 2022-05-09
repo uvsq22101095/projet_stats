@@ -1,8 +1,9 @@
 # projet_stats
 
-## Notre projet se découpe en deux fichier.
+## Notre projet se découpe en trois fichier.
 - le fichier projet_stats.py qui correspond au code principal du projet.
 - le fichier coordonnees.txt qui regroupe les coordonnees de chaque point a placer. ( il se modifie automatiquement après le lancement du programme)
+- le fichier modification_du_nombre_de_point.ipynb qui permet de modifier le nombre de coordonées dans le fichier coordonnes.txt
 
 ## Fonctionement
 - executer le fichier projet_stats.py, une fenetre s'ouvrira
