@@ -8,10 +8,12 @@
 ## Fonctionement
 - executer le fichier projet_stats.py, une fenêtre s'ouvrira
 - sur cette fenêtre, il y a 3 boutons:
-##
+
+
 - le bouton "tracer la droite" sert à tracer la droite des moindres carrés
 - le bouton "changer la couleur" sert à changer la couleur de la droite
 - le bouton "quiter" permet de quitter la fenêtre 
+
 ##
 
 ## problèmes auquel nous ne savons pas répondre
