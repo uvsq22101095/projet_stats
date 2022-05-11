@@ -2,7 +2,7 @@
 
 ## Notre projet se découpe en deux fichiers
 - le fichier projet_stats.py qui correspond au code principal du projet.
-- le fichier coordonnees.txt qui regroupe les coordonnées de chaque point à placer. ( il se modifie automatiquement après le lancement du programme)
+- le fichier coordonnees.txt qui regroupe les coordonnées de chaque point à placer. ( il se modifie automatiquement après le lancement du programme projet stats.py)
 
 ## Fonctionement
 - executer le fichier projet_stats.py, une fenêtre s'ouvrira
