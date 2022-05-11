@@ -283,6 +283,6 @@ droite.grid(column=1, row=0)
 couleur.grid(column=1, row=1)
 quit.grid(column=1, row=2)
 dessin1.grid(column=1, row=3)
-desactiver.grid(column=0, columnspan=2, row=4)
+desactiver.grid(column=1, row=4)
 
 root.mainloop()
