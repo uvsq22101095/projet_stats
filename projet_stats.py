@@ -20,11 +20,11 @@ root = tk.Tk()
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 root.title("Projet stats")
 
-canvas.create_line((0,0),(0,500), width= 10, fill="maroon2")
-canvas.create_line((0,500),(500,500), width= 3, fill="maroon2")
-canvas.create_line((0,0),(0,500), width= 10, fill="maroon2")
-canvas.create_line((0,0),(10,10), width= 2, fill="maroon2")
-canvas.create_line((490,490),(500,500), width= 2, fill="maroon2")
+canvas.create_line((0, 0), (0, 500), width=10, fill="maroon2")
+canvas.create_line((0, 500), (500, 500), width=3, fill="maroon2")
+canvas.create_line((0, 0), (0, 500), width=10, fill="maroon2")
+canvas.create_line((0, 0), (10, 10), width=2, fill="maroon2")
+canvas.create_line((490, 490), (500, 500), width=2, fill="maroon2")
 
 nb = 100
 
@@ -192,6 +192,13 @@ quit = tk.Button(
 )
 
 
+nuage = tk.Button(
+    text="tracer le nuage de points",
+    fg="black",
+    bg="white",
+    command=trace_Nuage()
+)
+
 creer_fichier_alea(nb)
 
 trace_Nuage(lit_fichier_X(), lit_fichier_Y())
@@ -202,4 +209,3 @@ couleur.grid(column=1, row=1)
 quit.grid(column=1, row=2)
 
 root.mainloop()
-
