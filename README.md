@@ -20,6 +20,7 @@
 
 ## problèmes auquel nous ne savons pas répondre
 - le programme permetant de tracer des point d'un clic de la souris (dessin) ne fonctionne pas
+- la droite des moindre carrés est étrange
 - afin de changer le nombre de point sur le canvas, il est nécessaire de créer un petit programme qui modifie le fichier "coordonnes.txt"
 - ces erreurs ne nous permetent pas de continuer le projet
 
