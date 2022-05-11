@@ -15,7 +15,8 @@ HEIGHT = 500
 WIDTH = 500
 Lx = []
 Ly = []
-
+Ax = []
+By = []
 
 root = tk.Tk()
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
@@ -84,6 +85,21 @@ def trace_Nuage(X, Y):
         nb_points += 1
     return(nb_points)
 
+def trace_dessin(Ax, By):
+    nb_points = 0
+    x = Ax
+    y = By
+    for i in range(0, len(x)):
+        abscice = x[i]
+        ordonnees = y[i]
+        canvas.create_oval(
+            int(abscice)+1,
+            HEIGHT-(int(ordonnees))+1,
+            int(abscice)-1,
+            HEIGHT-(int(ordonnees)-1)
+        )
+        nb_points += 1
+
 
 def tracer_droite(serie):
     a = int(serie[0])
@@ -114,13 +130,12 @@ def changer_couleur(serie):
 
 
 def dessin(event):
-    global Lx, Ly
     xclic = event.x
     yclic = event.y
     while 0 < xclic < WIDTH and 0 < yclic < HEIGHT:
-        Lx.append(xclic)
-        Ly.append(yclic)
-    trace_Nuage(Lx, Ly)
+        Ax.append(xclic)
+        By.append(yclic)
+    trace_dessin(Ax, By)
 
 
 ###
