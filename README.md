@@ -13,16 +13,17 @@
 - le bouton "tracer la droite" sert à tracer la droite des moindres carrés
 - le bouton "changer la couleur" sert à changer la couleur de la droite
 - le bouton "quiter" permet de quitter la fenêtre 
-- le bouton "" 
+- le bouton "dessin nuage" permet de creer des point directement sur le canvas d'un clic de la souris
+- le bouton "desactiver le mode dessin" permet de quitter le mode dessin
 
 ##
 
 ## problèmes auquel nous ne savons pas répondre
-- le programme trace automatiquement la droite des moindres carrés sans que le bouton ne soit pressé.
-- étant donnée que la droite des moindres carrés se trace automatiquement aucune personne du groupe ne sait comment changer sa couleur.
+- le programme permetant de tracer des point d'un clic de la souris (dessin) ne fonctionne pas
 - afin de changer le nombre de point sur le canvas, il est nécessaire de créer un petit programme qui modifie le fichier "coordonnes.txt"
+- ces erreurs ne nous permetent pas de continuer le projet
 
 ## auteurs
-- Johan CHENG
-- Nathan TIPAKA
-- Clara SAUNIER (SION-SAUNIER)
+- Johan CHENG 22101095
+- Nathan TIPAKA 22107022
+- Clara SAUNIER (SION-SAUNIER) 21900004
