@@ -29,9 +29,9 @@ canvas.create_line((0, 0), (10, 10), width=2, fill="maroon2")
 canvas.create_line((490, 490), (500, 500), width=2, fill="maroon2")
 
 for i in range(5):
-    canvas.create_line((0,i*100), (500,i*100), fill="pink", width=3)
+    canvas.create_line((0, i*100), (500, i*100), fill="pink", width=3)
     canvas.create_line((i*100, 0), (i*100, 500), fill="pink", width=3)
-    canvas.create_line((0,i*100), (WIDTH,i*100), fill="pink", width=3)
+    canvas.create_line((0, i*100), (WIDTH, i*100), fill="pink", width=3)
     canvas.create_line((i*100, 0), (i*100, HEIGHT), fill="pink", width=3)
 
 nb = 100
@@ -113,6 +113,39 @@ def changer_couleur(serie):
     tracer_droite(serie)
 
 
+def dessin(event):
+    global Lx, Ly
+    xclic = event.x
+    yclic = event.y
+    while 0 < xclic < WIDTH and 0 < yclic < HEIGHT:
+        Lx.append(xclic)
+        Ly.append(yclic)
+    trace_Nuage(Lx, Ly)
+
+
+###
+# def dessiner(n):
+#     global list1, list2
+# tracage des points avec la souris lors du clic gauche
+#    cv.create_line(
+#        (float(n.x),
+#        float(n.y)),
+#        (float(n.x) + 2,
+#        float(n.y) + 2),
+#        fill='purple'
+#    )
+#     list1.append(n.x)  # creation des listes des coordonnes de la souris
+#     list2.append(n.y)
+###
+
+def activer():
+    root.bind('<Button-1>', dessin)
+
+
+def desactiver_dessin():
+    root.unbind('<Button-1>')
+
+
 def moyenne(serie):
     valeur_moyenne = 0
     m = serie
@@ -191,6 +224,22 @@ couleur = tk.Button(
     )
 
 
+dessin1 = tk.Button(
+    text="dessin nuage ",
+    fg="black",
+    bg="white",
+    command=activer()
+)
+
+
+desactiver = tk.Button(
+    text="desactiver le mode dessin",
+    fg="black",
+    bg="white",
+    command=desactiver_dessin()
+)
+
+
 quit = tk.Button(
     text="quitter",
     fg="black",
@@ -217,6 +266,7 @@ canvas.grid(column=0, row=0, rowspan=3)
 droite.grid(column=1, row=0)
 couleur.grid(column=1, row=1)
 quit.grid(column=1, row=2)
-
+dessin1.grid(column=1, row=3)
+desactiver.grid(column=0, columnspan=2, row=4)
 
 root.mainloop()
