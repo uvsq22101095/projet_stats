@@ -6,7 +6,7 @@
 
 ## Fonctionement
 - executer le fichier projet_stats.py, une fenêtre s'ouvrira
-- sur cette fenêtre, il y a 3 boutons:
+- sur cette fenêtre, il y a 6 boutons:
 
 - le bouton "tracer le nuage de point points" sert a afficher l'ensemble des points
 - le bouton "tracer la droite" sert à tracer la droite des moindres carrés
