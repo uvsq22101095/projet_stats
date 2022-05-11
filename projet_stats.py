@@ -26,6 +26,12 @@ canvas.create_line((0, 0), (0, 500), width=10, fill="maroon2")
 canvas.create_line((0, 0), (10, 10), width=2, fill="maroon2")
 canvas.create_line((490, 490), (500, 500), width=2, fill="maroon2")
 
+for i in range(5):
+    canvas.create_line((0,i*100), (500,i*100), fill="pink", width=3)
+    canvas.create_line((i*100, 0), (i*100, 500), fill="pink", width=3)
+    canvas.create_line((0,i*100), (WIDTH,i*100), fill="pink", width=3)
+    canvas.create_line((i*100, 0), (i*100, HEIGHT), fill="pink", width=3)
+
 nb = 100
 
 
