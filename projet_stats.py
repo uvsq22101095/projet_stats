@@ -270,4 +270,5 @@ dessin1.grid(column=1, row=3)
 desactiver.grid(column=0, columnspan=2, row=4)
 quit.grid(column=1, row=2)
 
+
 root.mainloop()
