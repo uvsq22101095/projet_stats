@@ -85,6 +85,7 @@ def trace_Nuage(X, Y):
         nb_points += 1
     return(nb_points)
 
+
 def trace_dessin(Ax, By):
     nb_points = 0
     x = Ax
