@@ -6,6 +6,7 @@
 # https://github.com/uvsq22101095/projet_stats
 #########################################
 
+
 import random as rd
 
 import tkinter as tk
@@ -19,6 +20,7 @@ Ly = []
 root = tk.Tk()
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 root.title("Projet stats")
+
 
 canvas.create_line((0, 0), (0, 500), width=10, fill="maroon2")
 canvas.create_line((0, 500), (500, 500), width=3, fill="maroon2")
@@ -102,8 +104,7 @@ def tracer_droite(serie):
 
 
 def changer_couleur(serie):
-    canvas.delete(serie)
-    serie
+    tracer_droite(serie)
 
 
 def moyenne(serie):
@@ -160,7 +161,7 @@ droite = tk.Button(
     text="tracer la droite",
     fg="black",
     bg="white",
-    command=tracer_droite(
+    command=lambda: tracer_droite(
             droite_reg(
                 lit_fichier_X(),
                 lit_fichier_Y()
@@ -173,7 +174,7 @@ couleur = tk.Button(
     text="changer la couleur",
     fg="black",
     bg="white",
-    command=changer_couleur(
+    command=lambda: changer_couleur(
             tracer_droite(
                 droite_reg(
                     lit_fichier_X(),
@@ -196,13 +197,16 @@ nuage = tk.Button(
     text="tracer le nuage de points",
     fg="black",
     bg="white",
-    command=trace_Nuage()
+    command=lambda: trace_Nuage(
+        lit_fichier_X(),
+        lit_fichier_Y()
+    )
 )
 
 creer_fichier_alea(nb)
 
-trace_Nuage(lit_fichier_X(), lit_fichier_Y())
 
+nuage.grid(column=0, columnspan=2, row=3)
 canvas.grid(column=0, row=0, rowspan=3)
 droite.grid(column=1, row=0)
 couleur.grid(column=1, row=1)
