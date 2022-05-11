@@ -36,6 +36,8 @@ for i in range(5):
     canvas.create_line((i*100, 0), (i*100, HEIGHT), fill="pink", width=3)
 
 nb = 100
+if nb % 2 != 0:
+    nb += 1
 
 
 def creer_fichier_alea(nb):
